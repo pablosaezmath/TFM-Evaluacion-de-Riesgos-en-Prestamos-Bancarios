@@ -1,29 +1,55 @@
-# Evaluación de Riesgos en Préstamos Bancarios mediante Machine Learning
+# TFM — Scoring Crediticio para Evaluación de Riesgos Bancarios
 
-Repositorio asociado al Trabajo Fin de Máster del Máster en Big Data y Data Science.
+> **Trabajo Fin de Máster · Máster en Big Data y Ciencia de Datos · VIU, 2026**  
+> **Autor:** Pablo Sáez Gil · saeznovelda@gmail.com
 
-Autor: Pablo Sáez Gil
+---
 
-## Descripción
+## ¿Qué problema resuelve?
 
-Este repositorio contiene el notebook principal utilizado en el desarrollo del Trabajo Fin de Máster, centrado en la evaluación de riesgos en préstamos bancarios mediante técnicas de machine learning.
+Las entidades financieras necesitan estimar la probabilidad de impago antes de conceder un préstamo. Este proyecto construye un **modelo de scoring crediticio end-to-end** que predice si un solicitante incurrirá en mora, combinando análisis exploratorio riguroso, ingeniería de características y comparación sistemática de modelos de clasificación y regresión sobre un dataset real de 8.399 clientes.
 
-El objetivo del trabajo es analizar un dataset financiero y evaluar distintos modelos predictivos para estimar el riesgo asociado a la concesión de préstamos.
+## Pipeline
 
-## Contenido del repositorio
+```
+Carga de datos → EDA → Preprocesamiento → Modelado → Evaluación → Conclusiones
+```
 
-- `notebook/` → notebook principal del análisis
-- `data/` → conjunto de datos utilizado en el proyecto
+1. **EDA** — distribuciones, correlaciones, análisis de morosidad por segmento
+2. **Preprocesamiento** — imputación, codificación, escalado, transformaciones logarítmicas
+3. **Modelado** — clasificadores y regresores con validación cruzada estratificada y RandomizedSearchCV
+4. **Evaluación** — AUC-ROC, curva ROC, matriz de confusión, importancia de variables, MAE, RMSE, R²
 
-## Tecnologías utilizadas
+## Modelos evaluados
 
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- XGBoost
-- Jupyter Notebook
+**Clasificación** (predicción de mora): `Logistic Regression` · `KNN` · `SVM` · `Random Forest` · `AdaBoost` · `XGBoost`
 
-## Observación
+**Regresión** (estimación numérica): `Linear Regression` · `Random Forest Regressor` · `XGBoost Regressor`
 
-Este repositorio se proporciona como material complementario a la memoria final del Trabajo Fin de Máster.
+## Stack
+
+`Python` · `pandas` · `numpy` · `scikit-learn` · `XGBoost` · `matplotlib` · `seaborn` · `Jupyter Notebook`
+
+## Estructura
+
+```
+TFM-Evaluacion-de-Riesgos-en-Prestamos-Bancarios/
+├── notebook/
+│   └── TFM-Evaluacion-de-Riesgos-en-Prestamos-Bancarios.ipynb
+├── data/
+│   └── data.csv
+└── README.md
+```
+
+## Cómo reproducir
+
+```bash
+git clone https://github.com/pablosaezmath/TFM-Evaluacion-de-Riesgos-en-Prestamos-Bancarios.git
+cd TFM-Evaluacion-de-Riesgos-en-Prestamos-Bancarios
+pip install pandas numpy scikit-learn xgboost matplotlib seaborn jupyter
+jupyter notebook notebook/TFM-Evaluacion-de-Riesgos-en-Prestamos-Bancarios.ipynb
+```
+
+## Autor
+
+**Pablo Sáez Gil** — Graduado en Matemáticas · Máster en Big Data y Ciencia de Datos (VIU) · saeznovelda@gmail.com
